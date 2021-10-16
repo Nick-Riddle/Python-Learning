@@ -1,0 +1,41 @@
+{% extends 'html/base.html' %}
+
+{% block site_title %}{{ log_title }}{% endblock %}
+
+{% block reg_title %}{{ log_title }}{% endblock %}
+
+{% block form %}
+{% if request.user.is_authenticated %}
+<div class="registration__welcome">
+    Welcome, {{ user.username }}
+</div>
+<div class="registration__logout">
+    <a href="{% url 'logout' %}">{{ btn_title }}</a>
+</div>
+{% else %}
+<form autocomplete="off" class="registration__form" method="post">
+    {% csrf_token %}
+    <div class="registration__message registration__error">
+        {{ form.non_field_errors }}
+    </div>
+    <div class="registration__fields">
+        <div class="registration__login registration__field">
+            {{ form.username }}
+            <i class="fas fa-sign-in-alt registration__field-img"></i>
+        </div>
+        <div class="registration__password registration__field">
+            {{ form.password }}
+            <i class="fas fa-lock registration__field-img"></i>
+        </div>
+    </div>
+    <div class="registration__btn">
+        <button type="submit">{{ btn_title }}</button>
+    </div>
+    <div class="registration__footer">
+        <a class="registration__link" href="{% url 'register' %}">
+            Create your Account <i class="fas fa-long-arrow-alt-right"></i>
+        </a>
+    </div>
+</form>
+{% endif %}
+{% endblock %}

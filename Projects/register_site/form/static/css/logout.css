@@ -1,0 +1,338 @@
+/* -------------------------------------ZEROING--------------------------------------------  */
+
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul, ol, li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+html, body {
+    height: 100%;
+    line-height: 1;
+    font-size: 16px;
+    color: #000;
+    font-family: "Poppins";
+}
+
+button, input, input:active, input:active, button:active, button:focus {
+    outline: none;
+    font-family: inherit;
+}
+
+/* ------------------------------------GENERAL CLASSES--------------------------------------  */
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.page {
+    flex: 1 1 auto;
+}
+
+.wrapper {
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.ibg {
+    position: relative;
+}
+
+.ibg img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+/* ------------------------------------REGISTRATION----------------------------------------  */
+
+.registration {
+    padding: 15px;
+    min-height: 100vh;
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.registration__main {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 72px 130px 50px 95px;
+    border-radius: 10px;
+}
+
+.registration__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.registration__img {
+    flex: 0 0 42.994%;
+    padding: 0 0 39.32% 0;
+    height: 100%;
+    transition: all .4s linear;
+}
+
+.registration__img:hover {
+    transform: scale(1.1);
+}
+
+.registration__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 39.456%;
+    text-align: center;
+}
+
+.registration__title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 54px;
+}
+
+.registration__message {
+    font-size: 14px;
+    font-weight: 600;
+    color: #57b846;
+    margin-bottom: 13px;
+}
+
+.registration__message:last-child {
+    margin-bottom: 0;
+}
+
+.registration__error {
+    color: #C60043;
+}
+
+.registration__welcome {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #000;
+}
+
+.registration__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.registration__fields {
+    margin-bottom: 30px;
+}
+
+.registration__field-input {
+    background-color: #E6E6E6;
+    padding: 0 30px 0 68px;
+    height: 50px;
+    border-radius: 25px;
+    font-size: 15px;
+    width: 100%;
+    color: #666;
+    font-weight: 500;
+    transition: all .2s linear;
+}
+
+.registration__field-input:focus~.registration__field-img {
+    left: 10%;
+    color: #57b846;
+}
+
+.registration__field-input:focus {
+    animation: anim-shadow 1s forwards;
+}
+
+.registration__field:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.registration__login {
+    position: relative;
+}
+
+.registration__email {
+    position: relative;
+}
+
+.registration__password {
+    position: relative;
+}
+
+.registration__password:last-child {
+    position: relative;
+}
+
+.registration__field-img {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    left: 12%;
+    transform: translate(0, -50%);
+    transition: all .2s linear;
+    color: #666;
+}
+
+.registration__btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.registration__btn button {
+    font-family: "Montserrat";
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: #57b846;
+    color: #fff;
+    font-size: 15px;
+    margin-bottom: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    transition: all .25s linear;
+}
+
+.registration__btn button:hover {
+    background-color: #000;
+}
+
+.registration__footer {
+    text-align: right;
+}
+
+.registration__link {
+    font-size: 13px;
+    font-weight: 400;
+    color: #666;
+    transition: all .2s linear;
+}
+
+.registration__link i {
+    margin-left: 5px;
+}
+
+.registration__link:hover {
+    color: #57b846;
+}
+
+.registration__logout {
+    width: 100%;
+}
+
+.registration__logout a {
+    font-family: "Montserrat";
+    height: 50px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: #57b846;
+    color: #fff;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all .25s linear;
+}
+
+.registration__logout a:hover {
+    background-color: #000;
+}
+
+.registration__logout a {
+    color: #fff;
+}
+
+@keyframes anim-shadow {
+    from {
+        box-shadow: 0 0 0 0 rgba(87, 184, 70, 1);
+    }
+    to {
+        box-shadow: 0 0 80px 2px rgba(87, 184, 70, 0);
+    }
+}
+
+@media (max-width: 992px) {
+    .registration__main {
+        padding: 72px 50px 50px 85px;
+    }
+}
+
+@media (max-width: 760px) {
+    .registration__main {
+        padding: 62px 50px 45px;
+    }
+    .registration__img {
+        display: none;
+    }
+    .registration__body {
+        flex: 1 1 auto;
+    }
+    .registration__field-img {
+        left: 8%;
+    }
+    .registration__field-input:focus~.registration__field-img {
+        left: 6%;
+    }
+}
+
+@media (max-width: 577px) {
+    .registration__main {
+        padding: 45px 33px 30px;
+    }
+}
+
+@media(max-width: 448px) {
+    .registration__field-img {
+        left: 12%;
+    }
+    .registration__field-input:focus~.registration__field-img {
+        left: 9%;
+    }
+}
+@media(max-width: 336px) {
+    .registration__field-img {
+        left: 18%;
+    }
+    .registration__field-input:focus~.registration__field-img {
+        left: 14%;
+    }
+}

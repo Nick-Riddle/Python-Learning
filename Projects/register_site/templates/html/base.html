@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>{% block site_title %}{% endblock %}</title>
+    {% if request.user.is_authenticated %}
+    <link href="{% static 'css/logout.css' %}" rel="stylesheet">
+    {% else %}
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    {% endif %}
+    <link href="{% static 'img/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:regular,500,600,700,800" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:regular,500,600,700,800" rel="stylesheet"/>
+    <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="wrapper">
+    <main class="page">
+        <section class="page__registration registration">
+            <div class="registration__container container">
+                <div class="registration__main">
+                    <div class="registration__header">
+                        <div class="registration__img ibg">
+                            <img alt="image" src="{% static 'img/img1.webp' %}">
+                        </div>
+                        <div class="registration__body">
+                            <div class="registration__title">
+                                {% block reg_title %}{% endblock %}
+                            </div>
+                            {% block form %}{% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+</body>
+
+</html>

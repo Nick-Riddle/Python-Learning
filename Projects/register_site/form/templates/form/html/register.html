@@ -1,0 +1,38 @@
+{% extends 'html/base.html' %}
+
+{% block site_title %}{{ reg_title }}{% endblock %}
+
+{% block reg_title %}{{ reg_title }}{% endblock %}
+
+{% block form %}
+<form class="registration__form" method="post" autocomplete="off">
+    {% csrf_token %}
+    <div class="registration__message registration__error">
+        {{ form.username.errors }}
+    </div>
+    <div class="registration__fields">
+        <div class="registration__login registration__field">
+            {{ form.username }}
+            <i class="fas fa-sign-in-alt registration__field-img"></i>
+        </div>
+        <div class="registration__email registration__field">
+            {{ form.email }}
+            <i class="fas fa-envelope registration__field-img"></i>
+        </div>
+        <div class="registration__password registration__field">
+            {{ form.password1 }}
+            <i class="fas fa-lock registration__field-img"></i>
+        </div>
+        <div class="registration__password registration__field">
+            {{ form.password2 }}
+            <i class="fas fa-lock registration__field-img"></i>
+        </div>
+        <div class="registration__message registration__error">
+            {{ form.password2.errors }}
+        </div>
+    </div>
+    <div class="registration__btn">
+        <button type="submit">{{ btn_title }}</button>
+    </div>
+</form>
+{% endblock %}

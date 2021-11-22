@@ -1,0 +1,52 @@
+------------------------
+
+SELECT a, b
+FROM Z
+GROUP BY ROLLUP ( a, b )
+
+SELECT    a,   b  FROM Z
+GROUP BY a, b
+UNION ALL
+SELECT    a, NULL FROM Z
+GROUP BY a
+UNION ALL
+SELECT NULL, NULL FROM Z
+
+------------------------
+
+SELECT a, b
+FROM Z
+GROUP BY CUBE ( a, b )
+
+SELECT    a,    b FROM Z GROUP BY a, b UNION ALL
+SELECT    a, NULL FROM Z GROUP BY a    UNION ALL
+SELECT NULL,    b FROM Z GROUP BY b    UNION ALL
+SELECT NULL, NULL FROM Z
+
+------------------------
+
+SELECT a, b
+FROM Z
+GROUP BY 
+   GROUPING SETS ( a, b )
+
+SELECT    a, NULL FROM Z GROUP BY a    UNION ALL
+SELECT NULL,    b FROM Z GROUP BY b
+
+------------------------
+
+SELECT a, b, c, AGG ( d )
+FROM Z
+GROUP BY ROLLUP ( a, ( b, c ) )
+
+SELECT    a,    b,    c, AGG ( d )
+FROM Z
+GROUP BY a, b, c
+UNION ALL
+SELECT    a, NULL, NULL, AGG ( d ) 
+FROM Z 
+GROUP BY a       
+UNION ALL
+SELECT NULL, NULL, NULL, AGG ( d ) FROM Z
+
+------------------------
